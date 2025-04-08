@@ -1,3 +1,4 @@
+*.env
 *.csv
 *.db
 *.pdf
@@ -5,3 +6,4 @@
 *.png
 *.jpeg
 .vscode
+*/*/__pycache__
