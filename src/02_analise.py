@@ -145,4 +145,7 @@ labels = labels[12:]
 plt.legend(handles=handles, labels=labels)
 
 plt.savefig('../img/partidos_cor_raca_genero_clusterbr.png')
+
+# %%
+df.to_csv('../data/dataframe_old.csv', sep=';')
 # %%
