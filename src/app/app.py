@@ -4,7 +4,12 @@ import streamlit as st
 import pandas as pd
 import sqlalchemy
 import os
+import matplotlib.pyplot as plt
+import seaborn as sn
+from adjustText import adjust_text
 from pathlib import Path
+
+from utils import make_scatter
 
 pasta_atual = Path(os.getcwd())
 
@@ -30,10 +35,12 @@ uf_options = df['SG_UF'].unique().tolist()
 uf_options.remove('BR')
 uf_options = ['BR'] + uf_options
 
-estado = st.selectbox(label='Estado', placeholder='Selecione o estado que deseja filtrar:', options=uf_options)
+estado = st.sidebar.selectbox(label='Estado:', placeholder='Selecione o estado que deseja filtrar:', options=uf_options)
+size = st.sidebar.checkbox('Tamanho das bolhas')
+cluster = st.sidebar.checkbox('Definir cluster')
 
-df_uf = df[df['SG_UF'] == estado]
+data = df[df['SG_UF'] == estado]
 
-st.dataframe(df_uf)
+fig = make_scatter(data, size=size, cluster=cluster)
 
-# %%
+st.pyplot(fig)
