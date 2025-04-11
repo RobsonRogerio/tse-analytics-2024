@@ -2,7 +2,7 @@
 
 Projeto com finalidade de apresentar dados referentes à candidaturas dos partidos para as eleições municipais brasileiras de 2024.
 
-Criamos um app no Streamlit que você pode [conferir aqui](https://tse-analytics.streamlit.app/).
+Criamos um app no Streamlit que você pode [conferir aqui](https://tse-analytics-2024git.streamlit.app/).
 
 ## Fonte dos dados
 
@@ -22,11 +22,12 @@ Conheça mais sobre nosso projeto aqui:
 ## Ideias
 
 - Diversidade por gênero e cor/raça
-- [X] Agrupamento
-- [X] Separação por UF
-- [X] Separação por cargo
-- [X] Separação por UF/Cargo
-- [ ] Análise mulheres pretas
+    - [X] Agrupamento
+    - [X] Separação por UF
+    - [X] Separação por cargo
+    - [X] Separação por UF/Cargo
+    - [ ] Análise mulheres pretas
+
 - [X] Análise faixa etária
 - [X] Bens
 - [ ] Candidatos novos/reeleitos
