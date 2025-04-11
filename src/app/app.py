@@ -4,24 +4,36 @@ import streamlit as st
 import pandas as pd
 import sqlalchemy
 import os
+import gdown
+
 from utils import make_scatter, make_clusters
 
 app_path = os.path.dirname(os.path.abspath(__file__))
 src_path = os.path.dirname(app_path)
 base_path = os.path.dirname(src_path)
 data_path = os.path.join(base_path, 'data')
-database_path = os.path.join(data_path, 'database.db') 
+database_path = os.path.join(data_path, 'database.db')
 
 engine = sqlalchemy.create_engine(f'sqlite:///{database_path}')
-query_path = os.path.join(app_path, 'etl_partidos.sql')
 
-with open(query_path, 'r') as open_file:
-    query = open_file.read()
+st.cache_data(ttl=60*60*24)
+def download_db():
+    url_database = 'https://drive.google.com/uc?id=1pajZlWzmIrcTHi7gpyluZG4HgqsQAGBM' 
+    gdown.download(url_database, database_path, quiet=False)
 
-df = pd.read_sql_query(query, engine)
-df.head()
+st.cache_data(ttl=60*60*24)
+def create_df():
+    query_path = os.path.join(app_path, 'etl_partidos.sql')
+    with open(query_path, 'r') as open_file:
+        query = open_file.read()
 
+    return pd.read_sql_query(query, engine)
+    
 # %%
+
+download_db()
+
+df = create_df()
 
 welcome = '''
 # TSE Analytics - Eleições 2024
