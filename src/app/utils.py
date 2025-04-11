@@ -2,6 +2,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sn
 from adjustText import adjust_text
+from sklearn import cluster
 
 
 # %%
@@ -14,7 +15,7 @@ def make_scatter(data, cluster=False, size=False):
         'y': 'TX_COR_RACA_PRETA',
         'size': 'TOTAL_CANDIDATURAS',
         'sizes': (5,300),
-        'hue': 'clusterBR',
+        'hue': 'cluster',
         'palette': 'viridis',
         'alpha': 0.6,
     }
@@ -80,3 +81,9 @@ def make_scatter(data, cluster=False, size=False):
     plt.legend(handles=handles, labels=labels)
 
     return fig
+
+def make_clusters(data, n=6):
+    model = cluster.KMeans(n_clusters=n, random_state=42)
+    model.fit(data[['TX_GEN_FEMININO', 'TX_COR_RACA_PRETA']])
+    data['cluster'] = model.labels_
+    return data
