@@ -13,14 +13,6 @@ src_path = os.path.dirname(app_path)
 base_path = os.path.dirname(src_path)
 data_path = os.path.join(base_path, 'data')
 
-# database_path = os.path.join(data_path, 'database.db')
-# engine = sqlalchemy.create_engine(f'sqlite:///{database_path}')
-
-# st.cache_data(ttl=60*60*24)
-# def download_db():
-#     url_database = 'https://drive.google.com/uc?id=1pajZlWzmIrcTHi7gpyluZG4HgqsQAGBM' 
-#     gdown.download(url_database, database_path, quiet=False)
-
 st.cache_data(ttl=60*60*24)
 def create_df():
     filename = os.path.join(data_path, 'data_partidos.parquet')
