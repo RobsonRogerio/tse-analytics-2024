@@ -4,18 +4,18 @@ import streamlit as st
 import pandas as pd
 import sqlalchemy
 import os
-import matplotlib.pyplot as plt
-import seaborn as sn
-from adjustText import adjust_text
-from pathlib import Path
-
 from utils import make_scatter, make_clusters
 
-pasta_atual = Path(os.getcwd())
+app_path = os.path.dirname(os.path.abspath(__file__))
+src_path = os.path.dirname(app_path)
+base_path = os.path.dirname(src_path)
+data_path = os.path.join(base_path, 'data')
+database_path = os.path.join(data_path, 'database.db') 
 
-engine = sqlalchemy.create_engine('sqlite:///../../data/database.db')
+engine = sqlalchemy.create_engine(f'sqlite:///{database_path}')
+query_path = os.path.join(app_path, 'etl_partidos.sql')
 
-with open(pasta_atual / 'etl_partidos.sql', 'r') as open_file:
+with open(query_path, 'r') as open_file:
     query = open_file.read()
 
 df = pd.read_sql_query(query, engine)
