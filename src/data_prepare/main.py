@@ -20,4 +20,4 @@ df = pd.read_sql_query(query, engine)
 
 filename = os.path.join(data_path, 'data_partidos.parquet')
 df.to_parquet(filename, index=False)
-
+# %%
