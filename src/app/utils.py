@@ -83,7 +83,7 @@ def make_scatter(data, cluster=False, size=False):
     return fig
 
 def make_clusters(data, n=6):
-    model = cluster.KMeans(n_clusters=n, random_state=42)
+    model = cluster.KMeans(n_clusters=n, random_state=42, max_iter=1000)
     model.fit(data[['TX_GEN_FEMININO', 'TX_COR_RACA_PRETA']])
     data['cluster'] = model.labels_
     return data
