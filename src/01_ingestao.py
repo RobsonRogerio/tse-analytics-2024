@@ -2,11 +2,6 @@
 import json
 import pandas as pd
 import sqlalchemy
-# from pathlib import Path
-
-# pasta_projeto = Path.cwd().parent
-# caminho_data = Path('data\consulta_cand_2024\consulta_cand_2024_BRASIL.csv')
-# path_data = pasta_projeto/caminho_data
 
 caminho_json = '../src/ingestoes.json'
 
