@@ -39,7 +39,7 @@ df = create_df()
 welcome = '''
 # TSE Analytics - Eleições 2024
 
-Uma iniciativa Téo Me Why em conjunto com a comunidade de análise e ciência de dados
+Altere as opções abaixo para ver as mudanças no gráfico.
 '''
 
 st.markdown(welcome)
@@ -110,4 +110,13 @@ fig = make_scatter(
                 )
 
 st.pyplot(fig)
+
+st.markdown('''            
+    Créditos:
+
+    Uma iniciativa [Téo Me Why](github.com/teomewhy) em conjunto com a comunidade de análise e ciência de dados ao vivo!
+
+    Você pode conferir a minha versão deste projeto no meu github: [github.com/RobsonRogerio/tse-analytics-2024](https://github.com/RobsonRogerio/tse-analytics-2024).
+    '''           
+    )
 # %%
